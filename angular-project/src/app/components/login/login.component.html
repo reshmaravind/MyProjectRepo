@@ -1,4 +1,39 @@
-Username: <input type="text" name="username" [(ngModel)]="username">
-Password: <input type="password" name="password" [(ngModel)]="password">
-<button (click)="onLogging()">Login</button>
-<div *ngIf="!loginStatus && clicked">Fill all mandatory fields</div>
+<div class="login-container">
+  <div class="card text-center" style="width: 20rem">
+    <h3 class="card-header">LOGIN</h3>
+    <div class="card-body">
+      <div *ngIf="!loginStatus && clicked" class="alert alert-warning">
+        Fill all mandatory fields
+      </div>
+      <div class="input-group input-group-sm mb-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text" id="inputGroup-sizing-sm"
+            >Username</span
+          >
+        </div>
+        <input
+          type="text"
+          class="form-control"
+          aria-label="Small"
+          aria-describedby="inputGroup-sizing-sm"
+          [(ngModel)]="username"
+        />
+      </div>
+      <div class="input-group input-group-sm mb-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text" id="inputGroup-sizing-sm"
+            >Password</span
+          >
+        </div>
+        <input
+          type="password"
+          class="form-control"
+          aria-label="Small"
+          aria-describedby="inputGroup-sizing-sm"
+          [(ngModel)]="password"
+        />
+      </div>
+      <button (click)="onLogging()" class="btn btn-success">Login</button>
+    </div>
+  </div>
+</div>

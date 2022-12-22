@@ -9,6 +9,8 @@ import { LoginComponent } from './components/login/login.component';
 import { FormsModule } from '@angular/forms';
 import { ErrorPageComponent } from './components/error-page/error-page.component';
 import { UserManagementComponent } from './components/user-management/user-management.component';
+import { MenuComponent } from './components/menu/menu.component';
+import { FooterCompComponent } from './components/footer-comp/footer-comp.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +18,9 @@ import { UserManagementComponent } from './components/user-management/user-manag
     MainScreenComponent,
     LoginComponent,
     ErrorPageComponent,
-    UserManagementComponent
+    UserManagementComponent,
+    MenuComponent,
+    FooterCompComponent
   ],
   imports: [
     BrowserModule,
