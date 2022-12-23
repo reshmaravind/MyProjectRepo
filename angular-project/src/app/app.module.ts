@@ -11,6 +11,7 @@ import { ErrorPageComponent } from './components/error-page/error-page.component
 import { UserManagementComponent } from './components/user-management/user-management.component';
 import { MenuComponent } from './components/menu/menu.component';
 import { FooterCompComponent } from './components/footer-comp/footer-comp.component';
+import { LogoutComponent } from './components/logout/logout.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { FooterCompComponent } from './components/footer-comp/footer-comp.compon
     ErrorPageComponent,
     UserManagementComponent,
     MenuComponent,
-    FooterCompComponent
+    FooterCompComponent,
+    LogoutComponent
   ],
   imports: [
     BrowserModule,
