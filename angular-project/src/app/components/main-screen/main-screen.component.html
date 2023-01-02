@@ -4,4 +4,8 @@
     Hello {{ userName }}.. <a routerLink="/userManagement">Click here</a> to
     manage users.
   </div>
+  <button class="btn btn-success" (click)="getMessage()">Get Message</button>
+  <div>
+    <h4>{{ welcomeMsg }}</h4>
+  </div>
 </div>

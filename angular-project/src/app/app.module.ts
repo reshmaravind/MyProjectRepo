@@ -12,6 +12,7 @@ import { UserManagementComponent } from './components/user-management/user-manag
 import { MenuComponent } from './components/menu/menu.component';
 import { FooterCompComponent } from './components/footer-comp/footer-comp.component';
 import { LogoutComponent } from './components/logout/logout.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -22,15 +23,16 @@ import { LogoutComponent } from './components/logout/logout.component';
     UserManagementComponent,
     MenuComponent,
     FooterCompComponent,
-    LogoutComponent
+    LogoutComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

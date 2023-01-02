@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { userModel } from './model';
+import { UserManagementService } from './service/user-management.service';
 
 @Component({
   selector: 'app-user-management',
@@ -8,32 +9,28 @@ import { userModel } from './model';
 })
 export class UserManagementComponent {
   users: userModel[] = [];
+  deleteMessage: string = '';
 
-  constructor() {}
+  constructor(private userManagementService: UserManagementService) {}
 
   ngOnInit(): void {
-    this.users = [
-      {
-        name: 'Reshma',
-        id: 1,
-        location: 'Kochi',
-        designation: 'Software Developer',
-        contactNumber: '8848685878',
+    this.getUsers();
+  }
+
+  getUsers(): void {
+    this.userManagementService.getAllUsers().subscribe({
+      next: (response) => {
+        this.users = response;
       },
-      {
-        name: 'Ajay',
-        id: 2,
-        location: 'Pune',
-        designation: 'Senior Software Developer',
-        contactNumber: '9566809489',
-      },
-      {
-        name: 'Remya',
-        id: 3,
-        location: 'Bangalore',
-        designation: 'SAP Consultant',
-        contactNumber: '8301820264',
-      },
-    ];
+      error: (e) => console.error(e),
+      complete: () => console.info('complete'),
+    });
+  }
+
+  deleteUser(obj: any): void {
+    this.userManagementService.deleteUser(obj.id).subscribe((res) => {
+      this.deleteMessage = `User ${obj.employeeName} deleted Succesfully`;
+      this.getUsers();
+    });
   }
 }

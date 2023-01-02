@@ -1,26 +1,33 @@
-
 <div class="container">
-    <h1>User Management</h1>
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Name</th>
-                <th>Location</th>
-                <th>Designation</th>
-                <th>Contact Number</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr *ngFor="let user of users">
-                <td>{{user.id}}</td>
-                <td>{{user.name}}</td>
-                <td>{{user.location}}</td>
-                <td>{{user.designation}}</td>
-                <td>{{user.contactNumber}}</td>
-            </tr>
-        </tbody>
-    </table>
-</div>
+  <h1>User Management</h1>
 
-    
+  <div class="alert alert-success" *ngIf="deleteMessage">
+    {{ deleteMessage }}
+  </div>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Location</th>
+        <th>Designation</th>
+        <th>Contact Number</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let user of users">
+        <td>{{ user.id }}</td>
+        <td>{{ user.employeeName }}</td>
+        <td>{{ user.location }}</td>
+        <td>{{ user.designation }}</td>
+        <td>{{ user.contactNumber }}</td>
+        <td>
+          <button (click)="deleteUser(user)" class="btn btn-warning">
+            Delete
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
