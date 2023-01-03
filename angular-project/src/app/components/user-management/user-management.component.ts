@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { userModel } from './model';
 import { UserManagementService } from './service/user-management.service';
 
@@ -10,8 +11,12 @@ import { UserManagementService } from './service/user-management.service';
 export class UserManagementComponent {
   users: userModel[] = [];
   deleteMessage: string = '';
+  updateMessage: string = '';
 
-  constructor(private userManagementService: UserManagementService) {}
+  constructor(
+    private userManagementService: UserManagementService,
+    private router: Router
+  ) {}
 
   ngOnInit(): void {
     this.getUsers();
@@ -32,5 +37,13 @@ export class UserManagementComponent {
       this.deleteMessage = `User ${obj.employeeName} deleted Succesfully`;
       this.getUsers();
     });
+  }
+
+  updateUser(obj: any): void {
+    this.router.navigate(['user', obj.id]);
+    // this.userManagementService.updateUser(obj.id).subscribe((res) => {
+    //   this.updateMessage = `User ${obj.employeeName} updated Succesfully`;
+    //   this.getUsers();
+    // });
   }
 }

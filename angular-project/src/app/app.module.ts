@@ -13,6 +13,7 @@ import { MenuComponent } from './components/menu/menu.component';
 import { FooterCompComponent } from './components/footer-comp/footer-comp.component';
 import { LogoutComponent } from './components/logout/logout.component';
 import { HttpClientModule } from '@angular/common/http';
+import { UsersComponent } from './components/user-management/users/users.component';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { HttpClientModule } from '@angular/common/http';
     MenuComponent,
     FooterCompComponent,
     LogoutComponent,
+    UsersComponent,
   ],
   imports: [
     BrowserModule,

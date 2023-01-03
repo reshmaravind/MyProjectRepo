@@ -5,6 +5,7 @@ import { LoginComponent } from './components/login/login.component';
 import { LogoutComponent } from './components/logout/logout.component';
 import { MainScreenComponent } from './components/main-screen/main-screen.component';
 import { UserManagementComponent } from './components/user-management/user-management.component';
+import { UsersComponent } from './components/user-management/users/users.component';
 import { RouteGuardService } from './service/route-guard.service';
 
 const routes: Routes = [
@@ -18,6 +19,11 @@ const routes: Routes = [
   {
     path: 'userManagement',
     component: UserManagementComponent,
+    canActivate: [RouteGuardService],
+  },
+  {
+    path: 'user/:id',
+    component: UsersComponent,
     canActivate: [RouteGuardService],
   },
   {

@@ -23,4 +23,14 @@ export class UserManagementService {
     const url = `http://localhost:8080/deleteUser/${id}`;
     return this.http.delete(url);
   }
+
+  getUsersById(id: any): Observable<any> {
+    const url = `http://localhost:8080/user/${id}`;
+    return this.http.get<userModel[]>(url).pipe(
+      map((response) => (response ? response : [])),
+      catchError((err: HttpErrorResponse) => {
+        throw err;
+      })
+    );
+  }
 }
