@@ -25,7 +25,8 @@ export class MainScreenComponent {
     this.mainScreenServiceService
       .getLoggedInUser(this.userName)
       .subscribe((res) => {
-        this.welcomeMsg = res;
+        console.log(res);
+        //this.welcomeMsg = res;
       });
   }
   handleErrorResponse(error: any): void {

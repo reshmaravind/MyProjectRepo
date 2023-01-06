@@ -33,4 +33,24 @@ export class UserManagementService {
       })
     );
   }
+
+  updateUser(id: any, obj: any): Observable<any> {
+    const url = `http://localhost:8080/userupdate/${id}`;
+    return this.http.put(url, obj).pipe(
+      map((response) => (response ? response : [])),
+      catchError((err: HttpErrorResponse) => {
+        throw err;
+      })
+    );
+  }
+
+  createUser(obj: any): Observable<any> {
+    const url = `http://localhost:8080/usercreate`;
+    return this.http.post(url, obj).pipe(
+      map((response) => (response ? response : [])),
+      catchError((err: HttpErrorResponse) => {
+        throw err;
+      })
+    );
+  }
 }

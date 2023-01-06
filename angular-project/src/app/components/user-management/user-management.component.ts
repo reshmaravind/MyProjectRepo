@@ -41,9 +41,9 @@ export class UserManagementComponent {
 
   updateUser(obj: any): void {
     this.router.navigate(['user', obj.id]);
-    // this.userManagementService.updateUser(obj.id).subscribe((res) => {
-    //   this.updateMessage = `User ${obj.employeeName} updated Succesfully`;
-    //   this.getUsers();
-    // });
+  }
+
+  addUser(): void {
+    this.router.navigate(['user', -1]);
   }
 }

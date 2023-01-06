@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { UrlCreationOptions } from '@angular/router';
 
 @Injectable({
@@ -15,7 +15,19 @@ export class MainScreenServiceService {
   }
 
   getLoggedInUser(name: string) {
+    let basicAuthHeaderString = this.createBasicAuthHttpHeader();
+    let headers = new HttpHeaders({
+      Authorization: basicAuthHeaderString,
+    });
     const url = `http://localhost:8080/hello-world/${name}`;
-    return this.http.get(url, { responseType: 'text' });
+    return this.http.get(url, { headers });
+  }
+
+  createBasicAuthHttpHeader() {
+    let username = 'Reshma';
+    let password = 'password';
+    let basicAuthHeaderString =
+      'Basic ' + window.btoa(username + ':' + password);
+    return basicAuthHeaderString;
   }
 }

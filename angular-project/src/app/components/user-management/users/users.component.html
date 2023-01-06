@@ -1,46 +1,56 @@
 <div class="container">
   <h1>Edit User</h1>
-  <div>
-    <label>Name</label>
-    <input
-      type="text"
-      class="form-control"
-      name="employeeName"
-      required="required"
-      [(ngModel)]="employeeName"
-    />
+  <div class="alert alert-warning" *ngIf="userForm.invalid && userForm.dirty">
+    Enter valid values
   </div>
-  <div>
-    <label>Location</label>
-    <input
-      type="text"
-      class="form-control"
-      name="location"
-      required="required"
-      [(ngModel)]="location"
-    />
+  <div class="alert alert-warning" *ngIf="contactNum.invalid && userForm.dirty">
+    The contact number must atleast have 9 digits
   </div>
-  <div>
-    <label>Designation</label>
-    <input
-      type="text"
-      class="form-control"
-      name="designation"
-      required="required"
-      [(ngModel)]="designation"
-    />
-  </div>
-  <div>
-    <label>Contact Number</label>
-    <input
-      type="text"
-      class="form-control"
-      name="contactNumber"
-      required="required"
-      [(ngModel)]="contactNumber"
-    />
-  </div>
-  <div>
-    <button class="btn btn-success mrg" (click)="saveUser()">Submit</button>
-  </div>
+
+  <form (ngSubmit)="!userForm.invalid && saveUser()" #userForm="ngForm">
+    <div>
+      <label>Name</label>
+      <input
+        type="text"
+        class="form-control"
+        name="employeeName"
+        required="required"
+        [(ngModel)]="employeeName"
+      />
+    </div>
+    <div>
+      <label>Location</label>
+      <input
+        type="text"
+        class="form-control"
+        name="location"
+        required="required"
+        [(ngModel)]="location"
+      />
+    </div>
+    <div>
+      <label>Designation</label>
+      <input
+        type="text"
+        class="form-control"
+        name="designation"
+        required="required"
+        [(ngModel)]="designation"
+      />
+    </div>
+    <div>
+      <label>Contact Number</label>
+      <input
+        #contactNum="ngModel"
+        type="text"
+        class="form-control"
+        name="contactNumber"
+        required="required"
+        [(ngModel)]="contactNumber"
+      />
+    </div>
+    <div>
+      <button type="submit" class="btn btn-success mrg">Submit</button>
+    </div>
+  </form>
 </div>
